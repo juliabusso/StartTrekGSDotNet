@@ -1,4 +1,4 @@
-# StartTrekGSDotNet — README Rápido
+# StartTrek — README 
 
 Visão geral
 - API .NET (C#) com arquitetura em camadas: Domain, Application (services/DTOs) e Infrastructure (DbContext, repositories).
@@ -16,6 +16,14 @@ Como rodar (rápido)
    dotnet ef database update --project src/StartTrekGS.Infrastructure --startup-project .
 5. Executar
    dotnet run --project .
+
+Membros:
+-Julia Damasceno Busso - RM560293 - 2TDSPB
+
+-Gabriel Gomes Cardoso - Rm559597 - 2TDSPB
+
+-Jhonatan Quispe Torrez - rm560601 - 2TDSPB
+
 
 Variáveis importantes
 - ConnectionStrings__DefaultConnection (string Oracle)
