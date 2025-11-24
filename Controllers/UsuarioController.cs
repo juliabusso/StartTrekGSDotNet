@@ -184,6 +184,6 @@ namespace StartTrekGS.Controllers
                     instance: HttpContext.Request.Path
                 );
             }
-        }
-    }
+        }
+    }
 }
