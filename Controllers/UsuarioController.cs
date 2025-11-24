@@ -24,7 +24,6 @@ namespace StartTrekGS.Controllers
             return Ok(pagina);
         }
 
-
         [HttpPost]
         public async Task<IActionResult> Cadastrar([FromBody] UsuarioCreateDto dto)
         {
@@ -39,7 +38,6 @@ namespace StartTrekGS.Controllers
             }
         }
 
-
         [HttpGet("{id:int}")]
         public async Task<IActionResult> BuscarPorId(int id)
         {
@@ -49,31 +47,31 @@ namespace StartTrekGS.Controllers
 
                 var links = new[]
                 {
-            new
-            {
-                rel = "self",
-                href = Url.Action(nameof(BuscarPorId), new { id }),
-                method = "GET"
-            },
-            new
-            {
-                rel = "update",
-                href = Url.Action(nameof(Atualizar), new { id }),
-                method = "PUT"
-            },
-            new
-            {
-                rel = "delete",
-                href = Url.Action(nameof(Deletar), new { id }),
-                method = "DELETE"
-            },
-            new
-            {
-                rel = "search",
-                href = Url.Action(nameof(Search)),
-                method = "GET"
-            }
-        };
+                    new
+                    {
+                        rel = "self",
+                        href = Url.Action(nameof(BuscarPorId), new { id }),
+                        method = "GET"
+                    },
+                    new
+                    {
+                        rel = "update",
+                        href = Url.Action(nameof(Atualizar), new { id }),
+                        method = "PUT"
+                    },
+                    new
+                    {
+                        rel = "delete",
+                        href = Url.Action(nameof(Deletar), new { id }),
+                        method = "DELETE"
+                    },
+                    new
+                    {
+                        rel = "search",
+                        href = Url.Action(nameof(Search)),
+                        method = "GET"
+                    }
+                };
 
                 return Ok(new
                 {
@@ -85,13 +83,12 @@ namespace StartTrekGS.Controllers
             {
                 return Problem(
                     statusCode: 404,
-                    title = "Usuário não encontrado",
+                    title: "Usuário não encontrado",
                     detail: e.Message,
                     instance: HttpContext.Request.Path
                 );
             }
         }
-
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Atualizar(
@@ -109,7 +106,6 @@ namespace StartTrekGS.Controllers
             }
         }
 
-
         [HttpPatch("{id}/foto")]
         public async Task<IActionResult> AtualizarFoto(
             int id,
@@ -126,7 +122,6 @@ namespace StartTrekGS.Controllers
             }
         }
 
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> Deletar(int id)
         {
@@ -140,6 +135,7 @@ namespace StartTrekGS.Controllers
                 return NotFound(new { erro = e.Message });
             }
         }
+
         [HttpGet("search")]
         public async Task<IActionResult> Search(
             [FromQuery] string? nome,
@@ -156,19 +152,19 @@ namespace StartTrekGS.Controllers
 
                 var links = new[]
                 {
-            new
-            {
-                rel = "self",
-                href = Url.Action(nameof(Search), new { nome, ativo, pagina, tamanho, ordenarPor, direcao }),
-                method = "GET"
-            },
-            new
-            {
-                rel = "create",
-                href = Url.Action(nameof(Cadastrar)),
-                method = "POST"
-            }
-        };
+                    new
+                    {
+                        rel = "self",
+                        href = Url.Action(nameof(Search), new { nome, ativo, pagina, tamanho, ordenarPor, direcao }),
+                        method = "GET"
+                    },
+                    new
+                    {
+                        rel = "create",
+                        href = Url.Action(nameof(Cadastrar)),
+                        method = "POST"
+                    }
+                };
 
                 return Ok(new
                 {
@@ -189,7 +185,5 @@ namespace StartTrekGS.Controllers
                 );
             }
         }
-
     }
-
 }
